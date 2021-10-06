@@ -1,3 +1,53 @@
 body {
     background: lightblue;
+    text-align: center;
 }
+
+h1 {
+    display: block;
+    font-size: 3em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Gill Sans';
+}
+
+h2 {
+    font-size: x-large;
+    border: grey outset 4px;
+    display: table;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+form {
+    font-size: large;
+    border: grey outset 4px;
+    padding: 1rem;
+    width: 15rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+}
+
+.text {
+    text-align: center;
+}
+.numbers {
+   width: 30%;
+   text-align: center;
+}
+
+.submit {
+    position: relative;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.submit:hover {
+    background-color: whitesmoke;
+    border: green solid 1px;
+    color: green;
+  }
