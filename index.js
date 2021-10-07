@@ -1,27 +1,25 @@
-//Stops the webpage from refreshing when adding in workouts
+
 const init = () => {
-    let inputForm = document.querySelector('form');
+initialize();
+document.querySelector('#exerciseForm').addEventListener('submit', handleSubmit)
 
-    inputForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let exerciseObj = {
-            name: e.target.exercise_name.value,
-            sets: e.target.sets.value,
-            reps: e.target.reps.value
-        };
-        renderOneExercise(exerciseObj);
-        addExercise(exerciseObj);
-         console.log(e);
-         console.log(exerciseObj);
-    });
-}
-
-//Event Listeners
-document.addEventListener('DOMContentLoaded', init)
-
-//Event Handlers
 function handleSubmit(e){
+    e.preventDefault()
+    let exerciseObj = {
+        name: e.target.exercise_name.value,
+        sets: e.target.sets.value,
+        reps: e.target.reps.value
+    }
+    console.log(exerciseObj)
+    renderOneExercise(exerciseObj);
+    addExercise(exerciseObj);
+};
 }
+
+document.addEventListener("DOMContentLoaded", init)
+
+
+
 
 //DOM Render Workout
 function renderOneExercise(exercise){
@@ -41,29 +39,52 @@ function renderOneExercise(exercise){
     `
     //Add exercise card to DOM
     document.querySelector('#exercise-list').appendChild(card);
+
     document.getElementById(exercise.name).addEventListener('click', () => {
-        card.remove()
+        card.remove();
+        deleteExercise(exercise.id);
     })
 };
 
 //Fetch Request
+//Get all exercises saved in json server
 function getAllExercises(){
     fetch('http://localhost:3000/workouts')
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(exerciseData => exerciseData.forEach(exercise => renderOneExercise(exercise)))
 }
 
 
 //Adding exercises to JSON server data
 function addExercise(exerciseObj){
     console.log(JSON.stringify(exerciseObj))
-    // fetch('http://localhost:3000/workouts'),{
-    //     method: 'POST' ,
-    //     headers:
-    //     {
-    //         "Content-Type": "application/json",
-    //         Accept: "application/json"
-    //     },
+    fetch('http://localhost:3000/workouts', {
+        method: 'POST' ,
+        headers:
+        {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body:JSON.stringify(exerciseObj)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    
+}
 
-    // }
+//Deleting exercises from JSON server
+function deleteExercise(exercise){
+    fetch(`http://localhost:3000/workouts/${exercise}`, {
+        method: 'DELETE',
+        header: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
+
+//Initial Render
+function initialize(){
+    getAllExercises();
 }

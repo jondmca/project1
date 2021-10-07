@@ -8,8 +8,7 @@
 
   <body>
       <h1>My Simple Workout App!</h1>
-      <script src="index.js"></script>
-      <h2>Create Your Workout:</h2></br>
+      <h2>Create Your Workout</h2></br>
       <div class="container">
         <form id="exerciseForm">
           <label for="exercise-name"><strong>Add Your Exercise:</strong></label></br>
@@ -18,13 +17,15 @@
             <input type="number" name="sets" id="sets" placeholder="Sets" required/> x 
             <input type="number" name="reps" id="reps" placeholder="Reps" required/>
           </span></br>
-          <input type="submit" class="submit" name="submit" value="Add Exercise"/>
+          <input type="submit" id="submit" name="submit" value="Add Exercise"/>
         </form>
-      </div>
+      </div></br>
+      <h2>Your Workout for Today:</h2></br>
       <div id="exercise-list">
-          <!-- Exercises Added Here-->
+        <!-- Exercises Added Here-->
       </div>
-  </body>
-
+    </body>
+    
+    <script src="index.js"></script>
 </html>
 

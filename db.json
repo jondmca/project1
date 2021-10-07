@@ -1,10 +1,10 @@
 {
   "workouts": [
     {
-      "id": 1,
-      "name": "placeholder",
-      "sets": "placeholder",
-      "reps": "placeholder"
+      "name": "Chest Press",
+      "sets": "3",
+      "reps": "5",
+      "id": 1
     }
   ]
 }
