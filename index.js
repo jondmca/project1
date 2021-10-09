@@ -10,9 +10,11 @@ function handleSubmit(e){
         sets: e.target.sets.value,
         reps: e.target.reps.value
     }
-    console.log(exerciseObj)
-    renderOneExercise(exerciseObj);
     addExercise(exerciseObj);
+    console.log(e.target.exercise_name.value)
+    e.target.exercise_name.value = "";
+    e.target.sets.value = "";
+    e.target.reps.value = "";
 };
 }
 
@@ -57,7 +59,6 @@ function getAllExercises(){
 
 //Adding exercises to JSON server data
 function addExercise(exerciseObj){
-    console.log(JSON.stringify(exerciseObj))
     fetch('http://localhost:3000/workouts', {
         method: 'POST' ,
         headers:
@@ -68,7 +69,7 @@ function addExercise(exerciseObj){
         body:JSON.stringify(exerciseObj)
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => renderOneExercise(data))
     
 }
 

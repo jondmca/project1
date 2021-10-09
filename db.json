@@ -1,10 +1,3 @@
 {
-  "workouts": [
-    {
-      "name": "Chest Press",
-      "sets": "3",
-      "reps": "5",
-      "id": 1
-    }
-  ]
+  "workouts": []
 }

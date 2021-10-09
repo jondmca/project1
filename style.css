@@ -22,6 +22,7 @@ h2 {
     display: table;
     margin: 0 auto;
     padding: 5px;
+    background-color: lightgrey;
 }
 
 h3 {
@@ -37,6 +38,7 @@ form {
     width: 15rem;
     display: inline-grid;
     margin: 1rem 2rem;
+    background-color: lightgray;
 }
 
 #exercise_name {
@@ -74,6 +76,7 @@ form {
     display: inline-grid;
     margin: 1rem 2rem;
     box-shadow: 3px 4px grey;
+    background-color: lightgrey;
 }
 
 .completed-btn {
